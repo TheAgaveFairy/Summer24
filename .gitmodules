@@ -1,0 +1,3 @@
+[submodule "tinymlcontest2022_demo_example"]
+	path = tinymlcontest2022_demo_example
+	url = https://github.com/TheAgaveFairy/tinymlcontest2022_demo_example
