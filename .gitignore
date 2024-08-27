@@ -1,0 +1,38 @@
+drop_data/
+drop_data
+fft_data/
+recon_data/
+temp_data/
+trunc_data/
+tinyml_contest_data_training/
+**/Brunton
+**/bats
+**/results_old
+SR.pkl
+VT.pkl
+fullTrainMat.pkl
+catMats.pkl
+full.pkl
+
+playground/data/fullTrainMat.pkl
+playground/data.rar
+playground/data/SR.pkl
+playground/data/VT.pkl
+playground/data/catMats.pkl
+playground/data/full.pkl
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
