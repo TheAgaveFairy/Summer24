@@ -3,14 +3,15 @@
 
  ## Overview
 
- The tinymlcontest2022_demo_example folder is mostly the same as the original. In the models folder, there are now two models. The program will not run unless there is a "model_1.py" file available. Since I have two models (one with an avgpool layer to handle shorter input sizes), my automated .bat (sorry it's CMD) renames the desired model before calling the main .py files and then reverts that name when completed. This ensures I'm always running the desired model.
+ The tinymlcontest2022_demo_example folder is mostly the same as the original. Generated .bat files will need to be run from here.
 
- Results are saved in the results folder. The best place to look for readable and verified results will be my Google Sheet here: https://docs.google.com/spreadsheets/d/1QxSq8h2buYRQKXKKzqlOlNe0SRCejuz_MVQv7s9Tgtg/edit?usp=sharing. There are four sheets - one for raw lines of data for the original unmodified model that only accepts 1250 long inputs, and the avgpool model's results. These are summarized for quicker viewing via Pivot Tables onto "summary" tabs.
+ In the models folder, there are now two models. The program will not run unless there is a "model_1.py" file available. Since I have two models (one with an avgpool layer to handle shorter input sizes), my automated .bat (sorry it's CMD) renames the desired model before calling the main .py files and then reverts that name when completed. This ensures I'm always running the desired model.
+
+ Results are saved in the results folder. The best place to look for readable and verified results will be my Google Sheet here: https://docs.google.com/spreadsheets/d/1QxSq8h2buYRQKXKKzqlOlNe0SRCejuz_MVQv7s9Tgtg/edit?usp=sharing. There are four sheets - one for raw lines of data for the original unmodified model (that only accepts 1250 long inputs), and a sheet for the avgpool model's results. These are each summarized for quicker viewing via Pivot Tables onto "summary" tabs.
 
 ## Playground Folder
 
- The playground folder has a mix of helper files and at this time. The original data came as data.rar that can hopefully be found here: https://drive.google.com/drive/u/0/mobile/folders/1N-zT2p7pQck3uJjO6ORFFyoqeRpSIS3a?sort=14&direction=d . This has been unpacked (but not uploaded here due to GitHub limits) to a folder called 'tinyml_contest_data_training/' in the root folder. Most of my jupyter notebooks that I was playing with are here.
-
+ The playground folder has a mix of helper files and at this time. Most of my jupyter notebooks that I was playing with are here. The original data came as data.rar that can hopefully be found here: https://drive.google.com/drive/u/0/mobile/folders/1N-zT2p7pQck3uJjO6ORFFyoqeRpSIS3a?sort=14&direction=d . This should be unpacked (but not uploaded here due to GitHub limits) to a folder called 'tinyml_contest_data_training/' in the root folder. 
 The file you will want to see most is the testrunner notebook.
 
 ## Testrunner Notebook
@@ -19,7 +20,7 @@ This is how I'm preparing runs. The first section is imports, declarations, and 
 
 ### SVD
 
-You can run these cells to process all of the original data into truncated and reconstructed versions. Choose your number of ranks of the SVD desired 'r' and number of "sensors" desired 'p'. The process function performs the SVD and QR pivoting on the input training data and saves the relevant values / matrices to a .pkl. The prepare then uses this .pkl to actually "sense" and "reconstruct" the data, saving them to respective folders.
+You can run these cells to process all of the original data into truncated and reconstructed versions. Choose your number of ranks of the SVD desired 'r' and number of "sensors" desired 'p'. Note: for now, p must be greater than r. The process function performs the SVD and QR pivoting on the input training data and saves the relevant values / matrices to a .pkl. The prepare then uses this .pkl to actually "sense" and "reconstruct" the data, saving them to respective folders.
 
 NOTE: because files larger than 100MB, a few .pkls aren't there for now.
 
@@ -29,11 +30,14 @@ ref: https://www.researchgate.net/publication/312947855_Data-Driven_Sparse_Senso
 
 This creates a mask 1250-points long of boolean values where each point has a 'keep_percentage' chance of being "True" (i.e., keep this point). We then apply that mask to the original data and save the truncated data to a folder.
 
+### Random Dropout
+
+A mask is made for each file instead of one mask for the whole set, so they're really just each randomly messed up. Different values will be kept from each and each will have a range of lengths centered around 1250 * keep_percentage.
+
 ### FFT
 
-A very simple np.ffft.rfft() call on each data point. It looks at the strongest peaks in the results for all files and creates a mask to just keep those points. The data is then processed (with the option to remove unwanted frequences entirely or leave them as zeros) and saved with a .bat created.
+A very simple np.ffft.rfft() call on each data point. It looks at the strongest peaks in the results for all files and creates a mask to just keep those points. The data is then processed (with the option to remove/truncate unwanted frequences entirely or leave them as zeros) and saved with a .bat created.
 
 ### Wavelet
 
 We transform each file with some wavelet. A lot of decisions made here were informed by exploration in the "explorefftwavelet" notebook (levels of decomposition, determining which level of coefficients to keep, etc). There are two ways to run this, as a simple single-pass discrete wavelet transform, or as something with many levels of decomposition. Choose which cell you want to run.
-
