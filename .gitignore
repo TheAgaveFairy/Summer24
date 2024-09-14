@@ -20,6 +20,7 @@ playground/data/SR.pkl
 playground/data/VT.pkl
 playground/data/catMats.pkl
 playground/data/full.pkl
+playground/data
 
 # Jupyter Notebook
 .ipynb_checkpoints
