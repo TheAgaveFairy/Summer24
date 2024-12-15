@@ -13,6 +13,7 @@ VT.pkl
 fullTrainMat.pkl
 catMats.pkl
 full.pkl
+*.zip
 
 playground/data/fullTrainMat.pkl
 playground/data.rar
