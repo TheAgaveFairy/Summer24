@@ -262,6 +262,7 @@ label,Filename
 1,S48-VT-297.txt
 1,S48-VT-299.txt
 1,S48-VT-300.txt
+1,S48-VT-315.txt
 1,S48-VT-399.txt
 1,S48-VT-400.txt
 1,S48-VT-401.txt
@@ -311,6 +312,7 @@ label,Filename
 0,S48-SR-53.txt
 0,S48-SR-54.txt
 0,S48-SR-55.txt
+0,S48-SR-95.txt
 0,S48-SR-96.txt
 0,S48-SR-97.txt
 0,S48-SR-98.txt
@@ -391,6 +393,8 @@ label,Filename
 0,S48-SR-602.txt
 0,S76-SR-316.txt
 0,S76-SR-317.txt
+0,S76-SR-386.txt
+0,S76-SR-387.txt
 0,S76-SR-388.txt
 0,S76-SR-389.txt
 0,S76-SR-390.txt
@@ -629,6 +633,9 @@ label,Filename
 1,S18-VT-245.txt
 1,S18-VT-247.txt
 1,S18-VT-248.txt
+1,S18-VT-258.txt
+1,S18-VT-259.txt
+1,S18-VT-260.txt
 1,S18-VT-328.txt
 1,S18-VT-330.txt
 1,S18-VT-331.txt
@@ -647,6 +654,12 @@ label,Filename
 1,S18-VT-364.txt
 1,S18-VT-376.txt
 1,S18-VT-582.txt
+1,S18-VT-654.txt
+1,S18-VT-655.txt
+1,S18-VT-656.txt
+1,S18-VT-657.txt
+1,S18-VT-658.txt
+1,S18-VT-659.txt
 1,S18-VT-660.txt
 1,S18-VT-661.txt
 1,S18-VT-662.txt
@@ -776,6 +789,8 @@ label,Filename
 0,S82-SR-187.txt
 0,S82-SR-188.txt
 0,S82-SR-190.txt
+0,S82-SR-193.txt
+0,S82-SR-194.txt
 0,S82-SR-195.txt
 0,S82-SR-196.txt
 0,S82-SR-197.txt
@@ -1005,6 +1020,11 @@ label,Filename
 1,S70-VT-611.txt
 1,S70-VT-612.txt
 1,S70-VT-613.txt
+1,S70-VT-619.txt
+1,S70-VT-620.txt
+1,S70-VT-621.txt
+1,S70-VT-622.txt
+1,S70-VT-623.txt
 1,S70-VT-624.txt
 1,S70-VT-625.txt
 1,S70-VT-626.txt
